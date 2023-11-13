@@ -10,9 +10,9 @@ int print_binary(va_list args)
 {
 	int lag = 0;
 	int digt = 0;
-	int i, a = 1, k;
-	unsigned int fig = va_arg(args, unsigned int)
 	unsigned int j;
+	int i, a = 1, k;
+	unsigned int fig = va_arg(args, unsigned int);
 
 	for (i = 0; i < 32; i++)
 	{

@@ -10,7 +10,7 @@ int printf_int(va_list args_2)
 {
 
 	int n  = va_arg(args_2, int);
-	int dig, lst = n % 10, num, lap = 1;
+	int dig, lap = n % 10, num, lst = 1;
 	int i = 1;
 
 	n = n / 10;
@@ -27,17 +27,17 @@ int printf_int(va_list args_2)
 	{
 		while (dig / 10 != 0)
 		{
-			lap = lap * 10;
+			lst = lst * 10;
 			dig = dig / 10;
 		}
 		dig = n;
-		while (lap > 0)
+		while (lst > 0)
 		{
-			num = dig / lap;
+			num = dig / lst;
 			_putchar(num + '0');
-			dig = dig - (num * lap);
-			lap = lap / 10;
-			i++
+			dig = dig - (num * lst);
+			lst = lst / 10;
+			i++;
 		}
 	}
 	_putchar(lap + '0');
@@ -55,8 +55,8 @@ int printf_int(va_list args_2)
 int printf_d(va_list args_2)
 {
 	int n  = va_arg(args_2, int);
-	int dig, lst = n % 10, num, lap = 1;
-	int i = 1;
+	int dig, lap = n % 10, num, lst = 1;
+	int i = 0;
 
 	n = n / 10;
 	dig = n;
@@ -71,19 +71,19 @@ int printf_d(va_list args_2)
 	{
 		while (dig / 10 != 0)
 		{
-			lap = lap * 10;
+			lst = lst * 10;
 			dig = dig / 10;
 		}
 		dig = n;
-		while (lap > 0)
+		while (lst > 0)
 		{
-			num = dig / lap;
+			num = dig / lst;
 			_putchar(num + '0');
-			dig = dig - (num * lap);
-			lap = lap / 10;
-			i++
+			dig = dig - (num * lst);
+			lst = lst / 10;
+			i++;
 		}
 	}
-	_putchar(lap + '0');
+	_putchar(lst + '0');
 	return (i);
 	}

@@ -2,7 +2,7 @@
 
 /**
  * printf_percent - prints %
- * Return : 1
+ * Return: 1
  */
 
 int printf_percent(void)
