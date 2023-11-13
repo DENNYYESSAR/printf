@@ -11,7 +11,7 @@ int printf_int(va_list args_2)
 
 	int n  = va_arg(args_2, int);
 	int dig, lap = n % 10, num, lst = 1;
-	int i = 1;
+	int i = 0;
 
 	n = n / 10;
 	dig = n;
