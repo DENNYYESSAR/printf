@@ -1,55 +1,38 @@
 #include "main.h"
 
 /**
- * print_rot13 - Prints a string using ROT13 encoding.
- * @types: List of arguments.
- * @buffer: Buffer for handling the print.
- * @flags: Active flags.
- * @precision: Precision specifier.
- * @width: Width specifier.
- * @size: Size specifier.
- * Return: Number of printed characters.
+ * printf_rot - rot13 conversion
+ * @args: arguments
+ * Return: val
  */
 
-int print_rot13(va_list types, char buffer[],
-int flags, int width, int precision, int size)
+int printf_rot(va_list args)
 {
-	char x;
-	char *str;
-	unsigned int i, j;
-	int count = 0;
-	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+        int i, j, val = 0;
+        int k = 0;
+        char *str = va_arg(args, char *);
+        char a [] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+        char b [] = {"qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"};
 
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
-
-	str = va_arg(types, char *);
-
-	if (str == NULL)
-		str = "(AHYY)";
-
-	for (i = 0; str[i]; i++)
-	{
-		for (j = 0; in[j]; j++)
-		{
-			if (in[j] == str[i])
-			{
-				x = out[j];
-				buffer[count] = x;
-				count++;
-				break;
-			}
-		}
-		if (!in[j])
-		{
-			x = str[i];
-			buffer[count] = x;
-			count++;
-		}
-	}
-
-	return (count);
+        if (str == NULL)
+                str = "(null)";
+        for (i = 0; str[i] != '\0'; i++)
+        {
+                k = 0;
+                for (j = 0; a[j] && !k; j++)
+                {
+                        if (str[i] == a[j])
+                        {
+                                _putchar(b[j]);
+                                val++;
+                                k = 1;
+                        }
+                }
+                if (!k)
+                {
+                        _putchar(str[i]);
+                        val++;
+                }
+        }
+        return (val);
 }
