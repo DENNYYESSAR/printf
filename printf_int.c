@@ -57,14 +57,14 @@ int printf_d(va_list args_2)
 {
 	int n  = va_arg(args_2, int);
 	int dig, lap = n % 10, num, lst = 1;
-	int i = 0;
+	int i = 1;
 
 	n = n / 10;
 	dig = n;
 
 	if (lap < 0)
 	{
-	_putchar('-');
+		_putchar('-');
 		dig = -dig;
 		n = -n;
 		lap = -lap;
@@ -89,4 +89,4 @@ int printf_d(va_list args_2)
 	}
 	_putchar(lap + '0');
 	return (i);
-	}
+}
