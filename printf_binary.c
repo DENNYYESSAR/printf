@@ -16,8 +16,8 @@ int print_binary(va_list args)
 
 	for (i = 0; i < 32; i++)
 	{
-		j = ((a << (32 - 1)) & fig);
-		if (j >> (31 - 1))
+		j = ((a << (32 - i)) & fig);
+		if (j >> (31 - i))
 			lag = 1;
 		if (lag)
 		{
