@@ -32,5 +32,5 @@
 	int string_rev(va_list args);
 	int printf_rot(va_list args);
 	int string_rot13(va_list args);
-	int get_flags(const char *format, int *i);
+	int get_flags(const char *format, int *i)
 #endif
