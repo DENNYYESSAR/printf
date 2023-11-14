@@ -1,35 +1,33 @@
 #include "main.h"
 
 /**
- * string_rot13 - applies ROT13 encryption to a string and prints it
- * @args: argument
- * Return: number of characters printed
+ * printf_rot - rot13 conversion
+ * @args: arguments
+ * Return: val
  */
-int string_rot13(va_list args)
+
+int printf_rot(va_list args)
 {
-	char *str = va_arg(args, char *);
-	int count = 0;
+    int val = 0;
+    char *str = va_arg(args, char *);
 
-	if (str == NULL)
-		str = "(null)";
+    if (str == NULL)
+        str = "(null)";
 
-	while (*str != '\0')
-	{
-		if ((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z'))
-		{
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+        {
+            char base = (str[i] >= 'a') ? 'a' : 'A';
+            _putchar((char)(((str[i] - base + 13) % 26) + base));
+            val++;
+        }
+        else
+        {
+            _putchar(str[i]);
+            val++;
+        }
+    }
 
-		char base = (*str >= 'a') ? 'a' : 'A';
-
-		_putchar(((*str - base + 13) % 26) + base);
-		count++;
-		}
-		else
-		{
-			_putchar(*str);
-			count++;
-		}
-		str++;
-	}
-
-	return (count);
+    return (val);
 }
