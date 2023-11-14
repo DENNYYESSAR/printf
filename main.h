@@ -31,5 +31,5 @@
 	int var_hex(unsigned long int dig);
 	int string_rev(va_list args);
 	int printf_rot(va_list args);
-
+	int string_rot13(va_list args);
 #endif
